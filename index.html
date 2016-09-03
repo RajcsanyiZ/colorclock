@@ -32,35 +32,37 @@ html, body {
 
 
 </style>
+
 <script type="text/javascript">
-/* idő óó:pp:mm formátumban */
-Date.prototype.hhmmss = function() {     
-  return ("0" + this.getHours()).slice(-2) + ":" + ("0" + this.getMinutes()).slice(-2) + ":" + ("0" + this.getSeconds()).slice(-2);  
-};
+  /* idő óó:pp:mm formátumban */
+  Date.prototype.hhmmss = function() {     
+    return ("0" + this.getHours()).slice(-2) + ":" + ("0" + this.getMinutes()).slice(-2) + ":" + ("0" + this.getSeconds()).slice(-2);  
+  };
 
-/* idő alapján szín generálása */
-Date.prototype.hhmmss_colorcode = function() {     
-  return '#'+("0" + this.getHours()).slice(-2) + ("0" + this.getMinutes()).slice(-2) + ("0" + this.getSeconds()).slice(-2);  
-};
+  /* idő alapján szín generálása */
+  Date.prototype.hhmmss_colorcode = function() {     
+    return '#'+("0" + this.getHours()).slice(-2) + ("0" + this.getMinutes()).slice(-2) + ("0" + this.getSeconds()).slice(-2);  
+  };
 
-/* óra */
-function colorClock() {
-  var date = new Date();
-  
-  eclock = document.getElementById('clock')
-  
-  eclock.innerHTML = date.hhmmss();
-  document.body.style.background = date.hhmmss_colorcode();
-  
-  setTimeout(function() {
-    colorClock();
-  }, 1000);
-}   
+  /* óra */
+  function colorClock() {
+    var date = new Date();
+    
+    eclock = document.getElementById('clock')
+    
+    eclock.innerHTML = date.hhmmss();
+    document.body.style.background = date.hhmmss_colorcode();
+    
+    setTimeout(function() {
+      colorClock();
+    }, 1000);
+  }   
 
-colorClock();
+  colorClock();
 </script>
+
 </head>
 <body>
-  <div id="clock">19:21:22</div>
+  <div id="clock">--</div>
 </body>
 </html>
