@@ -14,54 +14,51 @@ Released under the MIT license: http://jsbin.mit-license.org
   <meta name="viewport" content="width=device-width">
   <title>Óra</title>
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">   
-<style id="jsbin-css">
-* { margin: 0; padding: 0; }
-
-html, body {
-  height: 100%
-}
-
-#clock {
-  text-align: center;  
-  position: relative;
-  top: 50%;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 60px;
-  margin-top: -30px;
-}
-
-
-</style>
-
+  <style id="jsbin-css">
+    * { margin: 0; padding: 0; }
+    
+    html, body {
+      height: 100%
+    }
+    
+    #clock {
+      text-align: center;  
+      position: relative;
+      top: 50%;
+      font-family: 'Titillium Web', sans-serif;
+      font-size: 60px;
+      margin-top: -30px;
+    }
+  </style>
 </head>
 <body>
   <div id="clock">--</div>
-</body>
-<script type="text/javascript">
-  /* idő óó:pp:mm formátumban */
-  Date.prototype.hhmmss = function() {     
-    return ("0" + this.getHours()).slice(-2) + ":" + ("0" + this.getMinutes()).slice(-2) + ":" + ("0" + this.getSeconds()).slice(-2);  
-  };
-
-  /* idő alapján szín generálása */
-  Date.prototype.hhmmss_colorcode = function() {     
-    return '#'+("0" + this.getHours()).slice(-2) + ("0" + this.getMinutes()).slice(-2) + ("0" + this.getSeconds()).slice(-2);  
-  };
-
-  /* óra */
-  function colorClock() {
-    var date = new Date();
-    
-    eclock = document.getElementById('clock')
-    
-    eclock.innerHTML = date.hhmmss();
-    document.body.style.background = date.hhmmss_colorcode();
-    
-    setTimeout(function() {
-      colorClock();
-    }, 1000);
-  }   
-
-  colorClock();
-</script>
+  <script type="text/javascript">
+    /* idő óó:pp:mm formátumban */
+    Date.prototype.hhmmss = function() {     
+      return ("0" + this.getHours()).slice(-2) + ":" + ("0" + this.getMinutes()).slice(-2) + ":" + ("0" + this.getSeconds()).slice(-2);  
+    };
+  
+    /* idő alapján szín generálása */
+    Date.prototype.hhmmss_colorcode = function() {     
+      return '#'+("0" + this.getHours()).slice(-2) + ("0" + this.getMinutes()).slice(-2) + ("0" + this.getSeconds()).slice(-2);  
+    };
+  
+    /* óra */
+    function colorClock() {
+      var date = new Date();
+      
+      eclock = document.getElementById('clock')
+      
+      eclock.innerHTML = date.hhmmss();
+      document.body.style.background = date.hhmmss_colorcode();
+      
+      setTimeout(function() {
+        colorClock();
+      }, 1000);
+    }   
+  
+    colorClock();
+  </script>
+  </body>
 </html>
